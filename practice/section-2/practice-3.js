@@ -13,21 +13,24 @@ finction objectify(str){
 
 function count_same_elements(collection) { 
   var SYMBOL_START_POS = 2;
-  var result = [];
-  var collection_a = objectify(collection);
-  collection.map(function(val){
-    return {
-      collection_a.key;
-      collection_a.count;}
+  var objResult = {}; 
+  var result = []; 
+  
+  collection.map(function(val) { 
+    return {name: objectify.key,
+      summary: objectify.summary}
   }).forEach(function(val) { 
-  collection_a[val.key] = collection_a[val.key] || 0; //objResult[val.key]为真直接赋值否则赋0
-  collection_a[val.key] += val.count; 
-});
-  for (var i in collection_a) { 
-     result.push({ name: i, summary: i.count}); 
-   } 
-   return result; 
-    } 
-
+  objResult[val.key] = objResult[val.key] || 0; //objResult[val.key]为真直接赋值否则赋0
+  objResult[val.key] += val.count; 
+}) 
+  for (var i in objResult) { 
+    result.push({ 
+      key: i, 
+      count: objResult[i] 
+    }); 
+  } 
+  return result;
+} 
 }
+
 
