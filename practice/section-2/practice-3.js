@@ -1,42 +1,33 @@
-function count_same_elements(collection) {
-	var result=[];
-	var temp = 0;
-	for (var i = 0;i < collection.length; i ++)
-	{
-		if(collection[i].length == 1)
-		{
-			for (var j = 0;j < result.length; j ++)
-			{
-				if( collection[i] == result[j].name )
-				{
-					result[j].summary++;
-					temp=1;
-					break;
-				}
-			}
-			if(temp==0)
-			{
-				result.push({name:collection[i],summary:1});
-			}
-			temp=0;
-		}
-		else
-		{
-			for (var k = 0; k < result.length; k ++)
-			{
-				if(collection[i].charAt(0) == result[k].name)
-				{
-					result[k].summary +=parseInt(collection[i].substr(2,2));
-					temp=1;
-					break;
-				}
-			}
-			if(temp==0)
-			{
-				result.push({name:collection[i].charAt(0),summary:parseInt(collection[i].charAt(2))})
-			}
-			temp=0;
-		}
-	}
-	return result;
+finction objectify(str){
+  var key = str.charAt[0];
+  var count = 1;
+
+  if(str.indexOf("-") > -1 ||
+    str.indexOf(";") > -1 ||
+    str.indexOf("[]") > -1
+    ){
+    count = parseInt( str.slice(SYMBOL_START_POS));
+  return { name : key,summary : count};
+  }
 }
+
+function count_same_elements(collection) { 
+  var SYMBOL_START_POS = 2;
+  var result = [];
+  var collection_a = objectify(collection);
+  collection.map(function(val){
+    return {
+      collection_a.key;
+      collection_a.count;}
+  }).forEach(function(val) { 
+  collection_a[val.key] = collection_a[val.key] || 0; //objResult[val.key]为真直接赋值否则赋0
+  collection_a[val.key] += val.count; 
+});
+  for (var i in collection_a) { 
+     result.push({ name: i, summary: i.count}); 
+   } 
+   return result; 
+    } 
+
+}
+

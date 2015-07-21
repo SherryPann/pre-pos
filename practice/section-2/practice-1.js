@@ -1,18 +1,18 @@
 function count_same_elements(collection) {
-	var result = [];  
-	for (var i = 0; i < collection.length; i++)
-	{
-		var count = 1;
-		for (var j = i+1;j < collection.length;j++)
-		{
-			if( collection[i] == collection[j])
-			{
-				count ++;
-				collection.splice(j,1);
-				j--;
-			}
-		}
-		result.push({key:collection[i],count:count});
-	}
-	return result;
+	var result = []; 
+
+	for (var i in collection) { 
+		find_same_item(collection[i], result); 
+	} 
+	return result; 
 }
+function find_same_item(item, collection){
+	for (var i in collection){
+		if(item === collection[i].key){
+			collection[i].count++;
+			return;
+		}
+	}
+	collection.push({key: item, count : 1});
+}
+	
